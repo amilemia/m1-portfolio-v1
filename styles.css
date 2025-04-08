@@ -259,3 +259,14 @@ section#about {
   color: #333;
   --color-accent: #ffd700;
 }
+
+/* projects section */
+.projects_logos {
+  margin-top: var(--space-xl);
+}
+
+section#projects {
+  background-color: #87ceeb;
+  color: #0c0c0c;
+  --color-accent: #2e8b57;
+}
