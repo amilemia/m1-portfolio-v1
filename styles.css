@@ -270,3 +270,100 @@ section#projects {
   color: #0c0c0c;
   --color-accent: #2e8b57;
 }
+
+/* contact section */
+.contact_form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form_group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+textarea {
+  resize: vertical;
+  height: 150px;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Hide success message by default, update on JS with AJAX/Fetch form submission */
+.form_success {
+  display: none;
+  margin-top: var(--space-xl);
+  padding: var(--space-s);
+  background-color: #2e7d32;
+  color: #ffffff;
+  border: 1px solid #1b5e20;
+  border-radius: 4px;
+}
+
+section#contact {
+  background-color: #4b0082;
+  color: #e6e6fa;
+  --color-accent: #ff4500;
+}
+
+section#footer {
+  background-color: #1a1a40;
+  color: #fafafa;
+  --color-accent: #8a2be2;
+}
+
+/* Ensure all text within contact section is white */
+section#contact p,
+section#contact h5,
+section#contact label {
+  color: #fff;
+}
+
+/* Update input and textarea text styling */
+section#contact input[type="text"],
+section#contact input[type="email"],
+section#contact textarea {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #fff;
+}
+
+/* Adjust placeholder colors for better contrast */
+section#contact ::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* footer section */
+section#footer {
+  padding: var(--space-l) var(--space-l);
+  background-color: #333;
+  color: #fff;
+}
