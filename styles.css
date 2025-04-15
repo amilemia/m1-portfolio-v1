@@ -176,6 +176,7 @@ h5,
     width: 100%;
     max-width: 1240px;
     margin: 0 auto;
+    padding: 0 1.5rem;
   }
   .wrapper_inner {
     width: 100%;
@@ -185,16 +186,118 @@ h5,
 
   /* Style the header */
 .site_header {
-    padding: var(--space-s) 0;
-    background: linear-gradient(rgba(26, 26, 64, 0.9), rgba(26, 26, 64, 0.9));
-  }
-  
-  .site_header_nav ul li a {
-    text-decoration: none;
-    color: #fff;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  background: rgba(26, 26, 64, 0.9);
+  padding: var(--space-s) 0;
+}
+
+.site_header_nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2rem;
+}
+
+.site_header_nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+}
+
+.site_header_nav ul li a:hover {
+  color: var(--color-accent, #8a2be2);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.menu-btn {
+  display: none;
+  background: rgba(26, 26, 64, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.menu-btn:hover {
+  background: rgba(26, 26, 64, 1);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .site_header {
+    display: none;
   }
 
-  /* Hero section styling */
+  .menu-btn {
+    display: block;
+  }
+
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(26, 26, 64, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-nav.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-nav ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .mobile-nav ul li a {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    display: block;
+    width: 200px;
+    text-align: center;
+  }
+
+  .mobile-nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+}
+
+/* Hero section styling */
 .hero_content {
     padding: var(--space-3xl) 0;
   }
@@ -223,6 +326,16 @@ h5,
     --color-accent: #8a2be2;
   }
 
+@media (max-width: 768px) {
+  section {
+    padding: var(--space-xl) var(--space-s);
+  }
+  
+  .hero_content {
+    padding: var(--space-xl) 0;
+  }
+}
+
 /* About section */
 .about_content {
   padding: var(--space-xl) 0;
@@ -232,6 +345,8 @@ h5,
 @media (max-width: 468px) {
   .about_content {
     transform: skewX(0deg);
+    flex-direction: column;
+    text-align: center;
   }
 }
 
@@ -242,6 +357,16 @@ h5,
   border: 2px solid #ccc;
   display: inline-block;
   padding: 5px;
+  transform: none;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.about_figure:hover {
+  transform: translateY(-5px);
 }
 
 .about_img {
@@ -263,6 +388,13 @@ section#about {
 /* projects section */
 .projects_logos {
   margin-top: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .projects_logos {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 section#projects {
@@ -315,6 +447,40 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #0056b3;
+}
+
+/* Modern button style */
+.btn {
+  background: linear-gradient(45deg, #007bff, #00ff88);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Modern form inputs */
+input[type="text"],
+input[type="email"],
+textarea {
+  background: rgba(255,255,255,0.05);
+  border: 2px solid rgba(255,255,255,0.1);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  background: rgba(255,255,255,0.1);
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
 }
 
 /* Hide success message by default, update on JS with AJAX/Fetch form submission */
